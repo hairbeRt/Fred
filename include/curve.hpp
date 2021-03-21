@@ -117,6 +117,21 @@ public:
         vend = Points::size() - 1;
     }
     
+    inline void push_coordinate(const coordinate_t &c) {
+        if(dimensions() == 1) {
+            Point new_point(1);
+            new_point[0] = c;
+            Points::push_back(new_point);
+            vend = Points::size() - 1;
+        }
+    }
+    
+    inline void pop_back() {
+        Points::pop_back();
+        vend = Points::size() - 1;
+    }
+
+    
     inline Point centroid() const {
         return Points::centroid();
     }
